@@ -33,7 +33,7 @@ export function CardExample({
   options,
 }: CardExampleProps) {
   return (
-    <Card className="bg-primary-foreground">
+    <Card className="bg-background">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="flex h-16 items-center justify-center space-x-2 border-t bg-primary-foreground px-4">
+    <footer className="flex h-16 items-center justify-center space-x-2 border-t bg-background px-4">
       <p className="text-sm text-gray-500 dark:text-gray-400">
         © 2024 Dog Poll. All rights reserved.
       </p>
