@@ -59,7 +59,7 @@ export function CardExample({
       </CardContent>
       <CardFooter className="space-x-2">
         <Avatar className="h-8 w-8">
-          <AvatarImage src="/avatars/01.png" alt="Avatar Image" />
+          <AvatarImage src="" alt="Avatar Image" />
           <AvatarFallback>
             {author
               .split(" ")
