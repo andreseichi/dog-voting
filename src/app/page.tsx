@@ -1,6 +1,11 @@
+"use client";
+
+import { signIn, useSession } from "next-auth/react";
+
 import { Header } from "@/app/components/Header";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useToast } from "@/components/ui/use-toast";
 import { CardExample } from "./components/CardExample";
 import { Footer } from "./components/Footer";
 
@@ -52,6 +57,10 @@ const cardExamples = [
 ];
 
 export default function Home() {
+  const session = useSession();
+
+  const { toast } = useToast();
+
   return (
     <TooltipProvider delayDuration={0}>
       <div className="flex-col md:flex">
@@ -73,7 +82,17 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center text-sm">
             <span>
               You can create public or private polls.{" "}
-              <span className="cursor-pointer font-semibold underline">
+              <span
+                className="cursor-pointer font-semibold underline"
+                onClick={() => {
+                  !session.data
+                    ? signIn()
+                    : toast({
+                        title: "You are already signed in",
+                        duration: 3500,
+                      });
+                }}
+              >
                 Sign in
               </span>{" "}
               to create your own polls.{" "}
