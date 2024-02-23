@@ -32,9 +32,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("min-h-screen", inter.className)}>
+      <body
+        className={cn("min-h-screen", inter.className)}
+        suppressHydrationWarning
+      >
         <AuthContext>
           <ThemeProvider
             attribute="class"
