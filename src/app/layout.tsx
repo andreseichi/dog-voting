@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AuthContext from "./AuthContext";
 
+import { getServerSession } from "next-auth";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,11 +28,13 @@ export const metadata: Metadata = {
   creator: "andreseichi",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -38,7 +42,7 @@ export default function RootLayout({
         className={cn("min-h-screen", inter.className)}
         suppressHydrationWarning
       >
-        <AuthContext>
+        <AuthContext session={session}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
