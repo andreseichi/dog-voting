@@ -1,8 +1,10 @@
-import { NewPoll } from "@/app/components/NewPoll";
-import { ModeToggle } from "./ModeToggle";
-import { UserNav } from "@/app/components/UserNav";
 import { signIn, useSession } from "next-auth/react";
+
+import { ModeToggle } from "@/app/components/ModeToggle";
+import { NewPoll } from "@/app/components/NewPoll";
+import { UserNav } from "@/app/components/UserNav";
 import { Button } from "@/components/ui/button";
+import { HeaderNav } from "./HeaderNav";
 
 export function Header() {
   const session = useSession();
@@ -10,7 +12,11 @@ export function Header() {
   return (
     <div className="sticky left-0 right-0 top-0 z-50 border-b bg-background">
       <div className="flex h-16 items-center px-8">
-        <h1>Dog Voting</h1>
+        <div className="flex items-center space-x-10">
+          <h1>Dog Voting</h1>
+
+          {session.data && <HeaderNav />}
+        </div>
 
         <div className="ml-auto flex items-center space-x-4">
           <div className="ml-auto">
