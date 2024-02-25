@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
@@ -21,7 +23,6 @@ interface CardExampleProps {
   author: string;
   options: {
     label: string;
-    value: number;
     votes: number;
   }[];
 }
@@ -32,14 +33,14 @@ export function CardExample({
   author,
   options,
 }: CardExampleProps) {
+  const totalVotes = options.reduce((acc, option) => acc + option.votes, 0);
+
   return (
     <Card className="bg-background">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
-        <span className="text-sm font-medium">
-          Total votes: {options.reduce((acc, option) => acc + option.votes, 0)}
-        </span>
+        <span className="text-sm font-medium">Total votes: {totalVotes}</span>
       </CardHeader>
       <CardContent>
         <RadioGroup defaultValue="option-one">
@@ -47,8 +48,11 @@ export function CardExample({
             <Tooltip key={index}>
               <TooltipTrigger asChild>
                 <div className="flex flex-col items-center space-y-1">
-                  <span>{option.label}</span>
-                  <Progress value={option.value} />
+                  <span>
+                    {option.label} -{" "}
+                    {((option.votes / totalVotes) * 100).toFixed(2)}%
+                  </span>
+                  <Progress value={(option.votes / totalVotes) * 100} />
                 </div>
               </TooltipTrigger>
 

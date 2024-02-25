@@ -23,17 +23,14 @@ const cardExamples = [
     options: [
       {
         label: "Pizza",
-        value: 20,
         votes: 10,
       },
       {
         label: "Hamburguer",
-        value: 53,
         votes: 30,
       },
       {
         label: "New game",
-        value: 27,
         votes: 15,
       },
     ],
@@ -45,18 +42,15 @@ const cardExamples = [
     options: [
       {
         label: "Minecraft",
-        value: 71,
-        votes: 13,
+        votes: 46,
       },
       {
         label: "Valorant",
-        value: 19,
-        votes: 3,
+        votes: 22,
       },
       {
         label: "League of Legends",
-        value: 10,
-        votes: 2,
+        votes: 9,
       },
     ],
   },
