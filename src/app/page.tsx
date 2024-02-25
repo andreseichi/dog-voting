@@ -4,10 +4,16 @@ import { signIn, useSession } from "next-auth/react";
 
 import { Header } from "@/app/components/Header";
 
-import { TooltipProvider } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useToast } from "@/components/ui/use-toast";
 import { CardExample } from "./components/CardExample";
 import { Footer } from "./components/Footer";
+import { Icons } from "@/components/Icons";
 
 const cardExamples = [
   {
@@ -82,19 +88,27 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center text-sm">
             <span>
               You can create public or private polls.{" "}
-              <span
-                className="cursor-pointer font-semibold underline"
-                onClick={() => {
-                  !session.data
-                    ? signIn()
-                    : toast({
-                        title: "You are already signed in",
-                        duration: 3500,
-                      });
-                }}
-              >
-                Sign in
-              </span>{" "}
+              <Tooltip>
+                <TooltipTrigger
+                  onClick={() => {
+                    !session.data
+                      ? signIn("google")
+                      : toast({
+                          title: "You are already signed in",
+                          duration: 3500,
+                        });
+                  }}
+                >
+                  <span className="cursor-pointer font-semibold underline">
+                    Sign in
+                  </span>
+                </TooltipTrigger>
+
+                <TooltipContent className="flex items-center">
+                  Sign in with Gmail
+                  <Icons.google className="ml-1 h-3 w-3" />
+                </TooltipContent>
+              </Tooltip>{" "}
               to create your own polls.{" "}
               <span className="font-semibold">It's FREE!</span>
             </span>

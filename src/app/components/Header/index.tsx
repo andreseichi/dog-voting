@@ -27,7 +27,7 @@ export function Header() {
           {session.data ? (
             <UserNav />
           ) : (
-            <Button variant={"secondary"} onClick={() => signIn()}>
+            <Button variant={"secondary"} onClick={() => signIn("google")}>
               Sign In
             </Button>
           )}
