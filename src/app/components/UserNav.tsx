@@ -22,7 +22,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { LogOutIcon } from "lucide-react";
+import { LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
 
 export function UserNav() {
   const session = useSession();
@@ -74,12 +74,14 @@ export function UserNav() {
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              Profile
+            <DropdownMenuItem className="cursor-pointer">
+              <UserIcon className="mr-2 h-4 w-4" />
+              <span>Profile</span>
               <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
+            <DropdownMenuItem className="cursor-pointer">
+              <SettingsIcon className="mr-2 h-4 w-4" />
+              <span>Settings</span>
               <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
