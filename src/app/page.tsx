@@ -14,47 +14,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { CardExample } from "./components/CardExample";
 import { Footer } from "./components/Footer";
-
-const cardExamples = [
-  {
-    title: "What should I buy?",
-    description: "Help me decide what to buy with my money",
-    author: "André Tashiro",
-    options: [
-      {
-        label: "Pizza",
-        votes: 10,
-      },
-      {
-        label: "Hamburguer",
-        votes: 30,
-      },
-      {
-        label: "New game",
-        votes: 15,
-      },
-    ],
-  },
-  {
-    title: "Next game to play",
-    description: "You decide the game I will play next",
-    author: "Albert Einstein",
-    options: [
-      {
-        label: "Minecraft",
-        votes: 46,
-      },
-      {
-        label: "Valorant",
-        votes: 22,
-      },
-      {
-        label: "League of Legends",
-        votes: 9,
-      },
-    ],
-  },
-];
+import { cardExamples } from "./data/polls";
 
 export default function Home() {
   const session = useSession();
@@ -104,7 +64,9 @@ export default function Home() {
                 </TooltipContent>
               </Tooltip>{" "}
               to create your own polls.{" "}
-              <span className="font-semibold">It's FREE!</span>
+              <span className="font-semibold">
+                It's <span className="text-primary">FREE</span>!
+              </span>
             </span>
           </div>
         </section>
