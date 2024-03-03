@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 
 import { Header } from "@/app/components/Header";
 
+import { Icons } from "@/components/Icons";
 import {
   Tooltip,
   TooltipContent,
@@ -13,7 +14,6 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { CardExample } from "./components/CardExample";
 import { Footer } from "./components/Footer";
-import { Icons } from "@/components/Icons";
 
 const cardExamples = [
   {
