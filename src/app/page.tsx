@@ -9,7 +9,7 @@ import { cardExamples } from "./data/polls";
 export default function Home() {
   return (
     <TooltipProvider delayDuration={0}>
-      <div className="flex-col md:flex">
+      <div className="min-h-screen flex-col md:flex">
         <Header />
 
         <MainSection />
@@ -21,7 +21,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
         <Footer />
       </div>
     </TooltipProvider>
