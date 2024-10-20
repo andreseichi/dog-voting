@@ -9,8 +9,6 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(request: NextRequest, response: NextResponse) {
   const token = await getToken({ req: request });
 
-  console.log({ token });
-
   if (token) {
     return NextResponse.next();
   } else {
